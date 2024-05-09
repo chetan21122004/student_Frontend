@@ -2,8 +2,8 @@ import React, { Fragment } from 'react'
 import { IoMenu } from "react-icons/io5";
 import { FaUser } from "react-icons/fa";
 import { Menu, Transition } from '@headlessui/react'
-// import { useNavigate } from 'react-router-dom';
-// import { useUser } from '../../context/UserContext';
+import { useNavigate } from 'react-router-dom';
+import { useUser } from '../../context/UserContext';
 
 
 
@@ -11,7 +11,7 @@ function classNames(...classes) {
   return classes.filter(Boolean).join(' ')
 }
 function Top() {
-  // const navigate = useNavigate()
+  const navigate = useNavigate()
   // const {user} = useUser()
  const user = JSON.parse(localStorage.getItem('user')); // Set isLoggedIn in local storage
 
@@ -73,7 +73,7 @@ function Top() {
                           onClick={ ()=> {
                             localStorage.setItem('isLoggedIn', false); // Set isLoggedIn in local storage
                             window.location.reload();
-                            // navigate('/')
+                            navigate('/')
 
                           }}
                             className={classNames(active ? 'bg-gray-100' : '', 'block px-4 py-2 text-sm text-gray-700')}
