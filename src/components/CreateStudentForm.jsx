@@ -64,7 +64,7 @@ const CreateStudentForm = () => {
     }
   
     try {
-      const response = await axios.post('http://localhost:2000/student/create', formallData);
+      const response = await axios.post('https://stu-backend-8l25i2zwq-chetans-projects-9b041f40.vercel.app/student/create', formallData);
       console.log('New student created:', response.data);
       // Handle success
     } catch (error) {
@@ -126,92 +126,3 @@ const CreateStudentForm = () => {
 export default CreateStudentForm;
 
 
-
-
-
-
-// import { Card, CardHeader, CardBody, CardFooter, Typography, Input, Button } from "@material-tailwind/react";
-// import { useState } from 'react';
-// import axios from 'axios';
-
-// const CreateStudentForm = () => {
-//   const [formData, setFormData] = useState({
-//     first_name: '',
-//     last_name: '',
-//     date_of_birth: '',
-//     gender: '',
-//     email: '',
-//     phone_number: '',
-//     address: '',
-//     password: '', // New state variable for password
-//   });
-//   const [selectedFile, setSelectedFile] = useState(null);
-//   const [previewImage, setPreviewImage] = useState(null);
-
-//   const handleChange = (e) => {
-//     if (e.target.type === 'file') {
-//       // Handle file input
-//     } else {
-//       // Handle other input fields
-//       setFormData({
-//         ...formData,
-//         [e.target.name]: e.target.value
-//       });
-//     }
-//   };
-  
-//   const handlePasswordChange = (e) => {
-//     setFormData({
-//       ...formData,
-//       password: e.target.value
-//     });
-//   };
-  
-//   const handleSubmit = async (e) => {
-//     e.preventDefault();
-//     const formallData = new FormData();
-    
-//     // Append image file
-//     if (selectedFile) {
-//       formallData.append('image', selectedFile);
-//     }
-  
-//     // Append other form data
-//     for (const key in formData) {
-//       formallData.append(key, formData[key]);
-//     }
-  
-//     try {
-//       const response = await axios.post('http://localhost:2000/students/create', formallData);
-//       console.log('New student created:', response.data);
-//       // Handle success
-//     } catch (error) {
-//       console.error('Error creating student:', error.response.data.error);
-//       // Handle error
-//     }
-//   };
-
-//   return (
-//     <div>
-//       <Card className="w-96">
-//         <CardHeader variant="gradient" color="gray" className="mb-4 grid h-20 place-items-center">
-//           <Typography variant="h3" color="white">
-//             Create Student
-//           </Typography>
-//         </CardHeader>
-//         <CardBody className="flex pb-2 pt-0 flex-col gap-3">
-//           {/* Existing input fields */}
-//           <Input label="First Name" size="lg" name="first_name" onChange={handleChange} />
-//           {/* Add password input field */}
-//         </CardBody>
-//         <CardFooter className="pt-0 pb-3">
-//           <Button variant="gradient" fullWidth type="submit" onClick={handleSubmit}>
-//             Create Student
-//           </Button>
-//         </CardFooter>
-//       </Card>
-//     </div>
-//   );
-// };
-
-// export default CreateStudentForm;
