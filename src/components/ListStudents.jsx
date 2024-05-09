@@ -14,7 +14,7 @@ export function ListStudents() {
   const [students, setStudents] = useState([]);
   const fetchStudents = async () => {
     try {
-      const response = await axios.get('https://stu-backend-8l25i2zwq-chetans-projects-9b041f40.vercel.app/students/get');
+      const response = await axios.get('https://stu-backend.vercel.app/students/get');
       setStudents(response.data);
     } catch (error) {
       console.error('Error fetching students:', error);
