@@ -1,17 +1,24 @@
 import React, { useState, useEffect } from 'react';
-import { BrowserRouter as Router, Routes, Route, Navigate, useLocation } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route, Navigate, Link } from 'react-router-dom';
 import Layout from './Layout';
 import ScanQr from './components/ScanQr';
 import Login from './components/login/Login';
-import CreateStudentForm from './components/CreateStudentForm';
 
 const App = () => {
   // State to track login status
   const [isLoggedIn, setIsLoggedIn] = useState(false);
+
   // Function to handle login
   const handleLogin = () => {
     // Perform login logic here, set isLoggedIn to true upon successful login
     setIsLoggedIn(true);
+  };
+
+  // Function to handle sign out
+  const handleSignOut = () => {
+    // Perform sign out logic here
+    localStorage.removeItem('isLoggedIn'); // Remove the isLoggedIn key from localStorage
+    setIsLoggedIn(false); // Update isLoggedIn state to false
   };
 
   useEffect(() => {
@@ -24,18 +31,14 @@ const App = () => {
   }, []);
 
   return (
-
-  <Router>
-
+    <Router>
       <Routes>
         {/* Route for login page */}
         <Route
           path="/"
           element={
             isLoggedIn ? (
-              
-                <Navigate to="/dashboard" />
-
+              <Navigate to="/dashboard" />
             ) : (
               <Login onLogin={handleLogin} />
             )
@@ -57,21 +60,17 @@ const App = () => {
           path="/dashboard/*"
           element={
             isLoggedIn ? (
-              <Layout />
+              <>
+                <Layout logout={handleSignOut} />
+              </>
             ) : (
               <Navigate to="/" state={{ message: 'You need to login' }} />
             )
           }
         />
       </Routes>
-  </Router>
-
+    </Router>
   );
 };
 
 export default App;
-
-
-
-
-

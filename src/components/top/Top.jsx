@@ -10,7 +10,7 @@ import { useUser } from '../../context/UserContext';
 function classNames(...classes) {
   return classes.filter(Boolean).join(' ')
 }
-function Top() {
+function Top({out}) {
   const navigate = useNavigate()
   // const {user} = useUser()
  const user = JSON.parse(localStorage.getItem('user')); // Set isLoggedIn in local storage
@@ -71,13 +71,13 @@ function Top() {
                         {({ active }) => (
                           <div 
                           onClick={ ()=> {
-                            localStorage.setItem('isLoggedIn', false); // Set isLoggedIn in local storage
-                            // window.location.reload();
                             setTimeout(() => {
                               
-                              navigate('/')
+                              localStorage.removeItem('user');
                             }, 50);
-
+                          localStorage.removeItem('isLoggedIn');
+                          out()
+                          navigate('/');
                           }}
                             className={classNames(active ? 'bg-gray-100' : '', 'block px-4 py-2 text-sm text-gray-700')}
                           >
