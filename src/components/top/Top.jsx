@@ -91,7 +91,7 @@ function Top({out}) {
             </div>
         <div className=" m-4 mt-2">
           <p className=' text-2xl  text-white font-normal '>Welcome</p>
-          <p className=' text-xl font-normal text-white '>Chetan</p>
+          <p className=' text-xl font-normal text-white '>{user.first_name+' '+user.last_name}</p>
         </div>
 
       </div>
