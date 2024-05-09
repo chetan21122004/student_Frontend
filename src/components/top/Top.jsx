@@ -72,8 +72,11 @@ function Top() {
                           <div 
                           onClick={ ()=> {
                             localStorage.setItem('isLoggedIn', false); // Set isLoggedIn in local storage
-                            window.location.reload();
-                            navigate('/')
+                            // window.location.reload();
+                            setTimeout(() => {
+                              
+                              navigate('/')
+                            }, 50);
 
                           }}
                             className={classNames(active ? 'bg-gray-100' : '', 'block px-4 py-2 text-sm text-gray-700')}
