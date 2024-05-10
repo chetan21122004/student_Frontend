@@ -7,7 +7,7 @@ const ScanQr = () => {
   const [result, setResult] = useState("No result");
   const [scanned, setScanned] = useState(false);
   const [scannerActive, setScannerActive] = useState(true); // Add state to control scanner activation
-
+  const [facingMode, setFacingMode] = useState("user")
   const navigate = useNavigate()
   useEffect(() => {
     // Check if user is already logged in
@@ -24,6 +24,14 @@ const ScanQr = () => {
       setScannerActive(false); // Deactivate scanner after successful scan
     }
   };
+
+  function cam(params) {
+    if (facingMode=='user') {
+      setFacingMode("environment")
+    } else {
+      setFacingMode("user")
+    }
+  }
 
   const handleError = (err) => {
     console.error(err);
@@ -59,12 +67,14 @@ const ScanQr = () => {
 
             <span className="text-sm">QR Code</span>
           </div>
-          <div>
+          <div onClick={cam} >
+            
             <svg
               xmlns="http://www.w3.org/2000/svg"
               className="h-8 w-8 p-2 cursor-pointer hover:bg-gray-500 text-gray-50 rounded-full "
               viewBox="0 0 20 20"
               fill="currentColor"
+
             >
               <path
                 fillRule="evenodd"
@@ -87,7 +97,7 @@ const ScanQr = () => {
               <div className=" w-56">
               <QrReader
                 onResult={handleScan}
-                constraints={ {facingMode: 'environment'} }
+                constraints={ {facingMode: facingMode} }
                 onError={handleError}
                 style={{ width: "100%" }}
                 resolution={2000} // Set default parameter
