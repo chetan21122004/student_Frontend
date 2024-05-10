@@ -96,8 +96,9 @@ const ScanQr = () => {
             <div>
               <div className=" w-56">
               <QrReader
+              key='environment'
                 onResult={handleScan}
-                constraints={ {facingMode: facingMode} }
+                constraints={ {facingMode: "environment"} }
                 onError={handleError}
                 style={{ width: "100%" }}
                 resolution={2000} // Set default parameter
