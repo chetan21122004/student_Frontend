@@ -1,3 +1,4 @@
+import axios from 'axios';
 import React, { useState, useEffect } from 'react';
 import {
   List,
@@ -8,13 +9,12 @@ import {
   Typography,
   Button,
 } from "@material-tailwind/react";
-import axios from 'axios';
 
 export function ListStudents() {
   const [students, setStudents] = useState([]);
   const fetchStudents = async () => {
     try {
-      const response = await axios.get('https://stu-backend.vercel.app/students/get');
+      const response = await axios.get('https://localhost:2000/students/get');
       setStudents(response.data);
     } catch (error) {
       console.error('Error fetching students:', error);

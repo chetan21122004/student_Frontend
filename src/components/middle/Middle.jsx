@@ -7,7 +7,7 @@ import CircularProgress from '../CircularProgress';
 function Middle() {
     const prog=90
   return (
-    <div className=' h-auto bg-gray-200 p-3 pt-8 pb-0  rounded-md    '>
+    <div className=' h-auto bg-gray-200 p-3 pt-4 pb-0  rounded-md    '>
         
          <div className="top_middle bg-white rounded-xl  p-2 h-28 flex justify-evenly gap-3 items-center">
 

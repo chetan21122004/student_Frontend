@@ -64,7 +64,7 @@ const CreateStudentForm = () => {
     }
   
     try {
-      const response = await axios.post('https://stu-backend-8l25i2zwq-chetans-projects-9b041f40.vercel.app/student/create', formallData);
+      const response = await axios.post('https://stu-backend.vercel.app/student/create', formallData);
       console.log('New student created:', response.data);
       // Handle success
     } catch (error) {

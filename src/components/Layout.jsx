@@ -1,7 +1,7 @@
 import React from 'react'
-import Top from './components/top/Top'
-import Middle from './components/middle/Middle'
-import Footer from './components/footer/Footer'
+import Top from './top/Top'
+import Middle from './middle/Middle'
+import Footer from './footer/Footer'
 
 function Layout({logout}) {
   const logou = logout

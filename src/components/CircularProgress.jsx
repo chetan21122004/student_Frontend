@@ -41,7 +41,7 @@ const CircularProgress = ({ radius, strokeWidth, progress }) => {
   }, [progre, radius,progress]); // Only run this effect when progress or radius changes
   
   return (<>
-  <div className=" bg-gray-200 p-10 pb-2 h-auto flex justify-center items-center">
+  <div className=" bg-gray-200 p-4 pb-0 h-auto flex justify-center items-center">
     <svg width={radius * 2} height={radius * 2}>
       <circle
         cx={radius}

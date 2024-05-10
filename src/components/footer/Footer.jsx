@@ -11,9 +11,9 @@ const Footer = () => {
 
 
       <Link to='/scan'>
-      <img src={scan} alt="Scan"className="cursor-pointer h-20" />
+      <img src={scan} alt="Scan"className="cursor-pointer h-16" />
       </Link>
-      <img  src={enter_code}  className="cursor-pointer h-20"/>
+      <img  src={enter_code}  className="cursor-pointer h-16"/>
         </div>
     </footer>
   );

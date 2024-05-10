@@ -20,8 +20,8 @@ function Top({out}) {
   
   return (
   <div className=' shadow-lg   border-gary-300  mb-0'>
-    <div className=" bg-blue-400 h-28  mb-0   ">
-      <div className=" bg-blue-400   flex items-center justify-start h-28   ">
+    <div className=" bg-blue-400 h-22  mb-0   ">
+      <div className=" bg-blue-400   flex items-center justify-start h-20  ">
         
         <div className=" m-4">
 
@@ -89,9 +89,9 @@ function Top({out}) {
                   </Transition>
                </Menu>
             </div>
-        <div className=" m-4 mt-2">
+        <div className=" m-3 mt-2">
           <p className=' text-2xl  text-white font-normal '>Welcome</p>
-          <p className=' text-xl font-normal text-white '>{user.first_name+' '+user.last_name}</p>
+          <p className=' text-xl font-normal text-white '>{user.first_name+' '+ user.last_name}</p>
         </div>
 
       </div>
@@ -103,8 +103,7 @@ function Top({out}) {
       <FaUser className=' h-6 w-12 ' />
       </div>
       <div className="">
-        <div className="font-bold ">{user.first_name+' '+user.last_name}</div>
-        <div className="font-normal ">Bachelor Of Computer Science - 3 Years </div>
+        <div className="font-normal ">Bachelor Of Computer Science- 3 Years</div>
         <div className="font-normal ">Semester 3</div>
       </div>
     </div>
