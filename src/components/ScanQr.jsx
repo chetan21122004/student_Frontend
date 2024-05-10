@@ -206,8 +206,12 @@ const ScanQr = () => {
                   onResult={handleScan}
                   onError={handleError}
                   style={{ width: "100%" }}
-                  facingMode={facingMode} // Set facing mode dynamically
                   resolution={1000}
+                  key="environment"
+                  constraints={{
+                  audio: false,
+                  video: { facingMode: "environment" }} 
+                }
                 />
               </div>
               <p className="text-gray-300 text-xs ">Scan a QR Code</p>
