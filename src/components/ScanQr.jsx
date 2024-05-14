@@ -17,6 +17,9 @@ console.log(user);
   const handleScan = async (data) => {
     if (data && scannerActive) { // Check if scanner is active
       // setResult(data);
+
+      setScanned(true);
+      setScannerActive(false);
       console.log(data.text);
       // scan(data.text)
        // Deactivate scanner after successful scan
