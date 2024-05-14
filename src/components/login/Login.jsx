@@ -81,7 +81,7 @@ export default function Login({ onLogin }) {
                 Email
               </label>
               <div className="mt-2">
-                <input
+                <input 
                   id="email"
                   name="email"
                   type="email"

@@ -16,36 +16,36 @@ const CreateStudentForm = () => {
   const [previewImage, setPreviewImage] = useState(null);
 
   const handleChange = (e) => {
-    if (e.target.type === 'file') {
-      const file = e.target.files[0];
-      const allowedTypes = ["image/jpeg", "image/png", "image/gif", "image/jpg", "image/svg"];
+    // if (e.target.type === 'file') {
+    //   const file = e.target.files[0];
+    //   const allowedTypes = ["image/jpeg", "image/png", "image/gif", "image/jpg", "image/svg"];
       
-      // Check if the selected file type is allowed
-      if (file && allowedTypes.includes(file.type)) {
-        setSelectedFile(file);
-        if (file) {
-          const reader = new FileReader();
-          reader.onloadend = () => {
-            setPreviewImage(reader.result);
-          };
-          reader.readAsDataURL(file);
-        } else {
-          setPreviewImage(null);
-        }
-      } else {
-        // File type not allowed, display an error message or handle accordingly
-        alert("Please select a valid image file (JPEG, PNG, GIF,JPG,SVG)");
-        // Optionally, you can clear the file input
-        e.target.value = null;
-        setSelectedFile(null);
-        setPreviewImage(null);
-      }
-    } else {
+    //   // Check if the selected file type is allowed
+    //   if (file && allowedTypes.includes(file.type)) {
+    //     setSelectedFile(file);
+    //     if (file) {
+    //       const reader = new FileReader();
+    //       reader.onloadend = () => {
+    //         setPreviewImage(reader.result);
+    //       };
+    //       reader.readAsDataURL(file);
+    //     } else {
+    //       setPreviewImage(null);
+    //     }
+    //   } else {
+    //     // File type not allowed, display an error message or handle accordingly
+    //     alert("Please select a valid image file (JPEG, PNG, GIF,JPG,SVG)");
+    //     // Optionally, you can clear the file input
+    //     e.target.value = null;
+    //     setSelectedFile(null);
+    //     setPreviewImage(null);
+    //   }
+    // } else {
       setFormData({
         ...formData,
         [e.target.name]: e.target.value
       });
-    }
+    // }
   };
   
   
@@ -54,17 +54,15 @@ const CreateStudentForm = () => {
     const formallData = new FormData();
     
     // Append image file
-    if (selectedFile) {
-      formallData.append('image', selectedFile);
-    }
+    // if (selectedFile) {
+    //   formallData.append('image', selectedFile);
+    // }
   
     // Append other form data
-    for (const key in formData) {
-      formallData.append(key, formData[key]);
-    }
+   
   
     try {
-      const response = await axios.post('https://stu-backend.vercel.app/student/create', formallData);
+      const response = await axios.post('http://localhost:2000/student/create', formData);
       console.log('New student created:', response.data);
       // Handle success
     } catch (error) {
@@ -86,7 +84,7 @@ const CreateStudentForm = () => {
         </Typography>
       </CardHeader>
       <CardBody className="flex  pb-2 pt-0 flex-col gap-3">
-      <div className="flex  items-center  justify-center bg-grey-lighter">
+      {/* <div className="flex  items-center  justify-center bg-grey-lighter">
          {previewImage && (
         <div  >
           <img src={previewImage} className=" w-20 rounded-full  border-2 border-blue cursor-pointer" alt="Preview"/>
@@ -102,7 +100,7 @@ const CreateStudentForm = () => {
    
     </label>
    
-      </div>
+      </div> */}
         <Input label="First Name" size="lg" name="first_name" onChange={handleChange} />
         <Input label="Last Name" size="lg" name="last_name" onChange={handleChange} />
         <Input label="Email" size="lg" type="email" name="email" onChange={handleChange} />

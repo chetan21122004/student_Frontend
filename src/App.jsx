@@ -34,9 +34,9 @@ const App = () => {
 
   return (
     <Router>
-    {/* <Routes>
-      <Route path='/' element={<CreateStudentForm/>} />
-    </Routes> */}
+      {/* <Routes>
+        <Route path='/' element={<ScanQr/>} />
+      </Routes> */}
 <Routes>
   {/* Route for login page */}
   <Route
@@ -77,6 +77,15 @@ const App = () => {
   </Router>
   );
 };
+
+
+
+
+
+
+
+
+
     // <Router>
     //   <Routes>
     //     <Route path='/' element={<div className=' h-screen w-screen flex items-center justify-evenly'>
