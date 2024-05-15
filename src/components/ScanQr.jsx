@@ -103,7 +103,7 @@ console.log(user);
           ) : (
             <div>
               <div className=" w-64">
-              <QrReader  key='environment'  onResult={handleScan}  onError ={handleError}  constraints={ {facingMode: "environment"} }  style={{ width: "100%" }}  resolution={2000}  scanDelay={10000} // Set default parameter
+              <QrReader  key='environment'  onResult={handleScan}  onError ={handleError}  constraints={ {facingMode: "environment"} }  style={{ width: "100%" }}  resolution={2000}   // Set default parameter
               />
               </div>
              
