@@ -17,7 +17,6 @@ console.log(user);
   const handleScan = async (data) => {
     if (data && scannerActive) { // Check if scanner is active
       // setResult(data);
-
       setScanned(true);
       setScannerActive(false);
       console.log(data.text);
@@ -40,11 +39,13 @@ console.log(user);
       }
   
       // Get student_id from local storage or any other source
-      const student_id = 29;
+      const student_id = parseInt(user.student_id);
   
       // Send both student_id and tem_lec_id to the server
       const response = await axios.post('https://stu-backend.vercel.app/scanqr',{
+
       // const response = await axios.post('http://localhost:2000/scanqr',{
+
         student_id: student_id,
         tem_lec_id: tem_lec_id
       });
@@ -52,6 +53,7 @@ console.log(user);
       console.log(response.data);
       setScanned(true);
       setScannerActive(false);
+
       // Update QR value with generated IDs
   
     } catch (error) {
@@ -64,12 +66,6 @@ console.log(user);
  const handleError=(err)=>{
     console.error(err)
   }
-  // // const handleScan = (data) => {
-  
-  // };
-
- 
-
 
 
   return (
@@ -80,40 +76,18 @@ console.log(user);
         <div className="flex w-full flex-row justify-between items-center mb-2 px-2 text-gray-50 z-10 absolute top-7">
           <div className="flex flex-row items-center">
           <div className="flex flex-row items-center" onClick={()=>navigate('/dashboard')}>
-    <svg 
-      xmlns="http://www.w3.org/2000/svg"
-      className="h-8 w-8 p-2 cursor-pointer hover:bg-gray-500 text-gray-50 rounded-full mr-3"
-      fill="none"
-      viewBox="0 0 24 24"
-      stroke="currentColor"
-    >
-      <path
-        strokeLinecap="round"
-        strokeLinejoin="round"
-        strokeWidth="2"
-        d="M10 19l-7-7m0 0l7-7m-7 7h18"
-      ></path>
+    <svg  xmlns="http://www.w3.org/2000/svg" className="h-8 w-8 p-2 cursor-pointer hover:bg-gray-500 text-gray-50 rounded-full mr-3" fill="none" viewBox="0 0 24 24" stroke="currentColor" >
+      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"></path>
     </svg>
     <span className="text-sm text-center">Scan QR Code</span>
   </div>
-
 
             {/* <span className="text-sm">QR Code</span> */}
           </div>
           <div >
             
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              className="h-8 w-8 p-2 cursor-pointer hover:bg-gray-500 text-gray-50 rounded-full "
-              viewBox="0 0 20 20"
-              fill="currentColor"
-
-            >
-              <path
-                fillRule="evenodd"
-                d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z"
-                clipRule="evenodd"
-              ></path>
+            <svg xmlns="http://www.w3.org/2000/svg" className="h-8 w-8 p-2 cursor-pointer hover:bg-gray-500 text-gray-50 rounded-full " viewBox="0 0 20 20" fill="currentColor"
+            ><path fillRule="evenodd" d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z" clipRule="evenodd"></path>
             </svg>
           </div>
         </div>
@@ -129,14 +103,7 @@ console.log(user);
           ) : (
             <div>
               <div className=" w-64">
-              <QrReader
-              key='environment'
-                onResult={handleScan}
-                onError ={handleError}
-                constraints={ {facingMode: "environment"} }
-                style={{ width: "100%" }}
-                resolution={2000}
-                scanDelay={10000} // Set default parameter
+              <QrReader  key='environment'  onResult={handleScan}  onError ={handleError}  constraints={ {facingMode: "environment"} }  style={{ width: "100%" }}  resolution={2000}  scanDelay={10000} // Set default parameter
               />
               </div>
              
@@ -149,6 +116,4 @@ console.log(user);
 };
 
 export default ScanQr;
-
-
 
