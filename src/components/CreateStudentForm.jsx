@@ -52,7 +52,7 @@ const CreateStudentForm = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     const formallData = new FormData();
-    
+
     // Append image file
     // if (selectedFile) {
     //   formallData.append('image', selectedFile);
@@ -62,7 +62,7 @@ const CreateStudentForm = () => {
    
   
     try {
-      const response = await axios.post('http://localhost:2000/student/create', formData);
+      const response = await axios.post('https://stu-backend.vercel.app/student/create', formData);
       console.log('New student created:', response.data);
       // Handle success
     } catch (error) {

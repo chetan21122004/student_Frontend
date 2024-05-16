@@ -6,7 +6,7 @@ import Footer from './footer/Footer'
 function Layout({logout}) {
   const logou = logout
   return (
-    <div className='h-screen p-1 bg-gray-200'>
+    <div className='h-screen  bg-gray-200'>
       <Top out={logou}/>
       <Middle/>
       <Footer/>

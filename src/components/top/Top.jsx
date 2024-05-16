@@ -5,7 +5,7 @@ import { Menu, Transition } from '@headlessui/react'
 import { useNavigate } from 'react-router-dom';
 import { useUser } from '../../context/UserContext';
 
-
+import sbuplogo from "../../assets/sbuplog.png"
 
 function classNames(...classes) {
   return classes.filter(Boolean).join(' ')
@@ -99,8 +99,8 @@ function Top({out}) {
     </div>
     <div className=" flex items-center bg-white h-20  p-2">
         
-    <div className="  rounded-full flex overflow-hidden border-2 h-12 w-12 m-3 items-center justify-center bg-gray-400">
-      <FaUser className=' h-6 w-12 ' />
+    <div className="  rounded-full flex overflow-hidden  h-12 w-12 m-3 items-center justify-center ">
+      <img src={sbuplogo} className=' h-12 w-12 ' alt="" />
       </div>
       <div className="">
         <div className="font-normal ">Bachelor Of Computer Science- 3 Years</div>
