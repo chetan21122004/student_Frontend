@@ -10,6 +10,7 @@ const ScanQr = () => {
   const [scanned, setScanned] = useState(false);
   const [scannerActive, setScannerActive] = useState(true); // Add state to control scanner activation
   const navigate = useNavigate()
+  const [message, setMessage] = useState("")
   const user = JSON.parse(localStorage.getItem('user')); // Set isLoggedIn in local storage
 console.log(user);
   
@@ -26,31 +27,30 @@ console.log(user);
     console.log(data);
     try {
       // Ensure e is a valid string before parsing
-      if (typeof data.text !== 'string') {
-        console.error('Invalid QR code data:',data.text );
-        return;
-      }
-  
+      
       // Convert e to integer
       const tem_lec_id = parseInt(data.text);
       if (isNaN(tem_lec_id)) {
         console.error('Invalid integer value:', data.text);
         return;
       }
-  
+      const first_name = user.first_name
       // Get student_id from local storage or any other source
       const student_id = parseInt(user.student_id);
   
       // Send both student_id and tem_lec_id to the server
-      const response = await axios.post('https://stu-backend.vercel.app/scanqr',{
+      // const response = await axios.post('https://stu-backend.vercel.app/scanqr',{
 
-      // const response = await axios.post('http://localhost:2000/scanqr',{
+      const response = await axios.post('http://localhost:2000/scanqr',{
 
-        student_id: student_id,
-        tem_lec_id: tem_lec_id
+        student_id,
+        tem_lec_id,
+        first_name
       });
   
-      console.log(response.data);
+      // console.log(response.data.message);
+      setMessage(response.data.message)
+      // console.log(message);
       setScanned(true);
       setScannerActive(false);
 
@@ -94,7 +94,7 @@ console.log(user);
         <div className="text-center flex items-center justify-center w-64 z-10">
           {scanned ? (
             <div className=" w-64 items-center flex flex-col justify-center">
-              <p className="text-gray-300 text-2xl mt-3">You are present for lecture</p>
+              <p className="text-gray-300 text-2xl mt-3">{message}</p>
               <div className=" ">
                        <img src={right} alt="" />
                </div>

@@ -3,7 +3,6 @@ import { IoMenu } from "react-icons/io5";
 import { FaUser } from "react-icons/fa";
 import { Menu, Transition } from '@headlessui/react'
 import { useNavigate } from 'react-router-dom';
-import { useUser } from '../../context/UserContext';
 
 import sbuplogo from "../../assets/sbuplog.png"
 
@@ -103,7 +102,7 @@ function Top({out}) {
       <img src={sbuplogo} className=' h-12 w-12 ' alt="" />
       </div>
       <div className="">
-        <div className="font-normal ">Bachelor Of Computer Science- 3 Years</div>
+        <div className="font-normal ">Bachelor Of Computer Applications:- 3Yr's</div>
         <div className="font-normal ">Semester 3</div>
       </div>
     </div>

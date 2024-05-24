@@ -4,10 +4,8 @@
 import { useState, useEffect } from 'react';
 import sbuplogo from "../../assets/sbuplog.png";
 import { useNavigate, useLocation } from 'react-router-dom';
-import { useUser } from '../../context/UserContext';
 
 export default function Login({ onLogin }) {
-  const { setUser, user } = useUser();
 
   const [formData, setFormData] = useState({
     email: '',
@@ -38,7 +36,6 @@ export default function Login({ onLogin }) {
 
       if (response.ok) {
         const data = await response.json();
-        setUser(data);
         onLogin();
         localStorage.setItem('isLoggedIn', true);
         localStorage.setItem('user', JSON.stringify(data));
