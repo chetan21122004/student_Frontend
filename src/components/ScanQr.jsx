@@ -39,9 +39,9 @@ console.log(user);
       const student_id = parseInt(user.student_id);
   
       // Send both student_id and tem_lec_id to the server
-      // const response = await axios.post('https://stu-backend.vercel.app/scanqr',{
+      const response = await axios.post('https://stu-backend.vercel.app/scanqr',{
 
-      const response = await axios.post('http://localhost:2000/scanqr',{
+      // const response = await axios.post('http://localhost:2000/scanqr',{
 
         student_id,
         tem_lec_id,
