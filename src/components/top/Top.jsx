@@ -102,7 +102,7 @@ function Top({out}) {
       <img src={sbuplogo} className=' h-12 w-12 ' alt="" />
       </div>
       <div className="">
-        <div className="font-normal ">Bachelor Of Computer Applications:- 3Yr's</div>
+        <div className="font-normal ">Bachelor Of Computer Applications 3Yr's</div>
         <div className="font-normal ">Semester 3</div>
       </div>
     </div>
