@@ -17,12 +17,7 @@ console.log(user);
 
   const handleScan = async (data) => {
     if (data && scannerActive) { // Check if scanner is active
-      // setResult(data);
-      // setScanned(true);
-      // setScannerActive(false);
-      // console.log(data.text);
-      // scan(data.text)
-       // Deactivate scanner after successful scan
+      
     
     console.log(data);
     try {
@@ -34,12 +29,10 @@ console.log(user);
         console.error('Invalid integer value:', data.text);
         return;
       }
-      const first_name = user.first_name
-      // Get student_id from local storage or any other source
-      const student_id = parseInt(user.student_id);
+      
   
       // Send both student_id and tem_lec_id to the server
-      const response = await axios.post('https://stu-backend.vercel.app/scanqr',user)
+      const response = await axios.post('https://stu-backend.vercel.app/scanqr',{user})
 
       // const response = await axios.post('http://localhost:2000/scanqr',user);
   
