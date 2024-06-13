@@ -4,9 +4,10 @@
 import { useState, useEffect } from 'react';
 import sbuplogo from "../../assets/sbuplog.png";
 import { useNavigate, useLocation } from 'react-router-dom';
+import {  Button } from "@material-tailwind/react";
 
 export default function Login({ onLogin }) {
-
+const [log, setlog] = useState()
   const [formData, setFormData] = useState({
     email: '',
     password: '',
@@ -23,6 +24,7 @@ export default function Login({ onLogin }) {
   };
 
   const handleSubmit = async (event) => {
+    // setlog(true)
     event.preventDefault();
 
     try {
@@ -107,12 +109,23 @@ export default function Login({ onLogin }) {
               </div>
             </div>
 
-            <div>
+            <div className='flex flex-col items-center justify-evenly'>
+              <Button type='submit' 
+                  className="flex w-3/4  text- justify-center rounded-md bg-blue-500 px-3 py-1.5 text-base font-semibold leading-6 text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
+                  loading={log} 
+                  >
+
+                
+                log in
+
+              </Button>
+           <p className=' top-1.5 mb-2 border-b border-blue-gray-600  text-base text-gray-700 relative'>or</p>
               <button
+              onClick={()=>navigate('/createAccount')}
                 type="submit"
-                className="flex w-full justify-center rounded-md bg-blue-500 px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
+                className="flex  mt-1  justify-center rounded-md p-2 py-1.5 text-base  rounded-b-none font-semibold text-blue-gray-700 border-b-2 border-blue-gray-400  leading-shadow-sm hover:bg-blue-gray-50 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
               >
-                Sign in
+                Create Account
               </button>
             </div>
           </form>

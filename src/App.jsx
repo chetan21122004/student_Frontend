@@ -3,9 +3,8 @@ import { BrowserRouter as Router, Routes, Route, Navigate, Link } from 'react-ro
 import Layout from './components/Layout';
 import ScanQr from './components/ScanQr';
 import Login from './components/login/Login';
-import CreateStudentForm from './components/CreateStudentForm';
 import { ListStudents } from './components/ListStudents';
-
+import CreateAccount from './components/createAccount/CreateStudentForm';
 const App = () => {
   // State to track login status
   const [isLoggedIn, setIsLoggedIn] = useState(false);
@@ -45,7 +44,7 @@ const App = () => {
       isLoggedIn ? (
         <Navigate to="/dashboard" />
       ) : (
-        <Login onLogin={handleLogin} />
+        <Login onLogin={handleLogin}  />
       )
     }
   />
@@ -71,6 +70,14 @@ const App = () => {
       ) : (
         <Navigate to="/" state={{ message: 'You need to login' }} />
       )
+    }
+  />
+  <Route
+    path="/createAccount"
+    element={
+     
+          <CreateAccount login ={handleLogin}  />
+
     }
   />
 </Routes>
